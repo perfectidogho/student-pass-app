@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Pass Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #c9d6ff, #e2e2e2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 420px;
+            animation: slideUp 0.7s ease-in-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="number"]:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.2);
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 500px) {
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Enter Student Information</h2>
+        <form method="POST" action="/predict">
+            <label>Age</label>
+            <input type="number" name="age" required>
+            <label>Study Time</label>
+            <input type="number" name="studytime" required>
+            <label>Failures</label>
+            <input type="number" name="failures" required>
+            <label>Absences</label>
+            <input type="number" name="absences" required>
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
